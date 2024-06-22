@@ -2,16 +2,16 @@ package com.rak.expense.dao.model.expense;
 
 import com.rak.expense.dao.model.AbstractEntity;
 import jakarta.persistence.Column;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 
-@MappedSuperclass
-@Getter
-@Setter
+@EqualsAndHashCode(callSuper = true)
+@Data
+@Entity
 @Table(name = "expense", schema = "expense")
 public class Expense extends AbstractEntity {
 
