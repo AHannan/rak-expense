@@ -1,4 +1,4 @@
-package com.rak.expense.service.expense.client.budget.dto;
+package com.rak.expense.service.client.budget.dto;
 
 import lombok.Builder;
 import lombok.Data;
