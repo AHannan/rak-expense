@@ -50,7 +50,7 @@ public class ExpenseNotificationService {
                                     BigDecimal latestExpenseAmount) {
         return "Budget for category: " + budgetCategoryName +
                 " with limit: " + budgetLimit + " exceeded by " + exceededAmount +
-                " after latestExpense with latestExpenseDescription: " + latestExpenseDescription +
+                ". Latest Expense was: " + latestExpenseDescription +
                 " and amount" + latestExpenseAmount;
     }
 

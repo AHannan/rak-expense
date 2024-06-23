@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 public class BudgetServiceClient {
 
     // TODO: Read from Properties
-    private String SERVICE_BUDGET_BASE_URL = "http://localhost:8080/api/budget";
+    private String SERVICE_BUDGET_BASE_URL = "http://localhost:8080/api";
 
     private final RestTemplate restTemplate;
 
