@@ -1,5 +1,6 @@
 package com.rak.expense.service.client.notification;
 
+import com.rak.expense.service.client.notification.dto.NotificationCreateDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -13,7 +14,7 @@ public class NotificationServiceClient {
 
     private final RestTemplate restTemplate;
 
-    public void sendNotification(String userId, String description) {
-//        return restTemplate.postForObject(SERVICE_NOTIFICATION_BASE_URL + "/notification/category-id/" + userId + "/description/" + description, null);
+    public void sendNotification(NotificationCreateDto dto) {
+        restTemplate.postForObject(SERVICE_NOTIFICATION_BASE_URL + "/notification", dto, NotificationCreateDto.class);
     }
 }
