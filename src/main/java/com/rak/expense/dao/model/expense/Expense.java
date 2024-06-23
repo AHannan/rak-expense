@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name = "expense", schema = "expense")
+@Table(name = "expense")
 public class Expense extends AbstractEntity {
 
     @Column(nullable = false)
