@@ -18,6 +18,7 @@ public class ExpenseService {
 
     private final ExpenseRepository repository;
     private final ExpenseDtoMapper mapper;
+    private final ExpenseNotificationService expenseNotificationService;
 
     public Page<ExpenseDto> getAll(String userId, String budgetCategoryId, Pageable pageable) {
         return repository.findAll(ExpenseSpecification.buildSpecification(userId, budgetCategoryId), pageable)
@@ -35,15 +36,21 @@ public class ExpenseService {
         result.setDescription(dto.getDescription());
         result.setAmount(dto.getAmount());
         result.setBudgetCategoryId(dto.getBudgetCategoryId());
+        repository.save(result);
 
-        return mapper.map(repository.save(result));
+        expenseNotificationService.notifyIfBudgetExceeded(result);
+
+        return mapper.map(result);
     }
 
     public Optional<ExpenseDto> update(String id, ExpenseDto dto) {
         return repository.findById(id).map(existing -> {
             existing.setAmount(dto.getAmount());
             existing.setBudgetCategoryId(dto.getBudgetCategoryId());
-            return mapper.map(repository.save(existing));
+            repository.save(existing);
+
+            expenseNotificationService.notifyIfBudgetExceeded(existing);
+            return mapper.map(existing);
         });
     }
 

@@ -14,7 +14,7 @@ public class BudgetServiceClient {
 
     private final RestTemplate restTemplate;
 
-    public BudgetViewDto getBudgetById(Long budgetId) {
-        return restTemplate.getForObject(SERVICE_BUDGET_BASE_URL + "/" + budgetId, BudgetViewDto.class);
+    public BudgetViewDto getBudgetByCategoryIdAndUserId(String categoryId, String userId) {
+        return restTemplate.getForObject(SERVICE_BUDGET_BASE_URL + "/budgets/category-id/" + categoryId + "/userId/" + userId, BudgetViewDto.class);
     }
 }
