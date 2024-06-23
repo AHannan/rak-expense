@@ -36,7 +36,7 @@ public class ExpenseService {
         result.setDescription(dto.getDescription());
         result.setAmount(dto.getAmount());
         result.setBudgetCategoryId(dto.getBudgetCategoryId());
-        repository.save(result);
+        result = repository.save(result);
 
         expenseNotificationService.notifyIfBudgetExceeded(result);
 
