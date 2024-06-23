@@ -124,7 +124,3 @@ If you wish to contribute to this project, please fork the repository and create
 ### License
 
 This project is licensed under the MIT License.
-
----
-
-This README provides a comprehensive guide to setting up and using the Expense service, including API endpoints and necessary configurations. If you need further customization or additional information, feel free to ask!
